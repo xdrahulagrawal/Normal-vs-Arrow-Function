@@ -1,0 +1,87 @@
+<script>
+    /**(1) We can check in normal and Anonymous function argument present or not but can't do in arrow function */
+
+    function checkArgumentNormal(x, y) {
+        console.log(arguments);
+        return x + y
+    }
+    // checkArgumentNormal(4, 5);
+
+    let checkArgumentAnonymous = function (x, y) {
+        console.log(arguments);
+        return x + y
+    }
+    // checkArgumentAnonymous(4, 5)
+
+    const checkArgumentArrow = (x, y) => {
+        console.log(arguments);  //show error is not defined
+        return x + y
+    }
+    // checkArgumentArrow();
+
+
+    //###########################################################################################
+    /**(2) We can make a constructor in normal  and Anonymous function but can't do in arrow function */
+    //when we make a constructor its run one time without access object
+
+    let constructorMakeAnonymous = function (fname, lname, age) {
+        this.firstName = fname;
+        this.lastName = lname;
+        this.newAge = age;
+        console.log("🚀 ~ file: arrowvs normal.html ~ line 24  ~ this", this)
+
+    }
+    // const constructorVariableNormal = new constructorMakeAnonymous('Rahul', 'Agrawal', 25);
+
+    function constructorMakeNormal(fname, lname, age) {
+        this.firstName = fname;
+        this.lastName = lname;
+        this.newAge = age;
+        console.log("🚀 ~ file: arrowvs normal.html ~ line 24  ~ this", this)
+    }
+    // const constructorVariableNormal = new constructorMakeNormal('Rahul', 'Agrawal', 25)
+    // console.log("🚀 ~ file: arrowvs normal.html ~ line 27 ~", constructorVariableNormal)
+
+    const constructorMakeArrow = (fname, lname, age) => {
+        // this.firstName = fname;
+        //show errow constructorMakeArrow is not a constructor
+        // console.log("🚀 ~ file: arrowvs normal.html ~ line 33 ~ constructorMakeArrow ~ this", this)
+    }
+    // const constructorVariableArrow = new constructorMakeArrow('Rahul', 'Agrawal', 25)
+
+
+    //###########################################################################################
+
+    /**(3) We can invoke before declare function name in normal function but can't do in arrow function */
+
+    // invokeNormal()
+    function invokeNormal() {
+        console.log('invokeNormal');
+    }
+
+
+    // invokeAnonymous() //ReferenceError: Cannot access 'invokeAnonymous' before initialization
+    let invokeAnonymous = function () {
+        console.log('invokeAnonymous');
+    }
+
+    // arrow();  // ReferenceError: arrow is not defined
+    const invokeArrow = () => {
+        console.log('invokeArrow');
+    }
+
+    //###########################################################################################
+
+    let sayHi = function someName() {
+        alert("Hello");
+    }; //This is function expression but with name and function can be called either way like sayHi() or someName().
+
+    var anon = function () {
+        alert('I am anonymous');
+    }
+    anon(); //This is also function expression but without name to the function hence it is anonymous function.
+
+    // #############################################################################################
+
+// except for genrator function complete 
+</script>
